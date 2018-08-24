@@ -61,6 +61,8 @@ dependencies:
   - mkl=2018.0.3=1
   - mkl_fft=1.0.4=py37h4414c95_1
   - mkl_random=1.0.1=py37h4414c95_1
+  - nb_conda=2.2.1=py37_0
+  - nb_conda_kernels=2.1.0=py37_0
   - nbconvert=5.3.1=py37_0
   - nbformat=4.4.0=py37_0
   - ncurses=6.1=hf484d3e_0
