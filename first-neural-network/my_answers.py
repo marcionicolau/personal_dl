@@ -108,7 +108,11 @@ class NeuralNetwork(object):
         # Weight step (input to hidden)
         delta_weights_i_h += hidden_error_term * X[:, None]
         # Weight step (hidden to output)
-        delta_weights_h_o += output_error_term.T * hidden_outputs
+        # delta_weights_h_o += output_error_term.T * hidden_outputs
+        # delta_weights_h_o += output_error_term.T.dot(hidden_outputs)
+#         delta_weights_h_o += np.dot(hidden_outputs[:, None],
+#                                     output_error_term[:, None])
+        delta_weights_h_o += output_error_term[:, None] * hidden_outputs[:, None]
         return delta_weights_i_h, delta_weights_h_o
 
     def update_weights(self, delta_weights_i_h, delta_weights_h_o, n_records):
@@ -153,7 +157,7 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 100
-learning_rate = 0.1
-hidden_nodes = 2
+iterations = 5000  # 100
+learning_rate = 0.1  # 0.1
+hidden_nodes = 15
 output_nodes = 1
