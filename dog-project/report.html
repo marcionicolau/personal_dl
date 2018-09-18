@@ -13981,6 +13981,14 @@ $$<p>Here, <code>nb_samples</code> is the number of samples, or number of images
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
 <p><strong>Answer:</strong></p>
+<p>For this CNN I use the suggested architecture with:</p>
+<ul>
+<li>Convolutional 2D layers, used to extract features from image input</li>
+<li>MaxPooling 2D layers, used to 'compact' the features representation</li>
+<li>GlobalAveragePooling 2D layer, used to average the last layer representation before to fully connected layer</li>
+<li>Fully connected layer, used to final classifier the output class using softmax</li>
+</ul>
+<p>This is the simpliest archicture to extract features from images with a sequential 3 steps (Conv2D + MaxPooling2D) end by a average representation and a final class classifier (softmax) that calculate the score (probability) for each class.</p>
 
 </div>
 </div>
@@ -14618,6 +14626,8 @@ test_{network} = bottleneck_features['test']</code></pre>
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
 <p><strong>Answer:</strong></p>
+<p>Using the 'Xception' architecture as a base, I only add two more layers to the end (GlobalAveragePooling + Fully Connected) to output the score (probability) for each class.</p>
+<p>This choise is based on the highier overall score archived with the validation dataset (aprox 85%).</p>
 
 </div>
 </div>
@@ -14990,6 +15000,8 @@ Epoch 6/20
 <h3 id="(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">(IMPLEMENTATION) Test Your Algorithm on Sample Images!<a class="anchor-link" href="#(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">&#182;</a></h3><p>Test your algorithm at least six images on your computer.  Feel free to use any images you like.  Use at least two human and two dog images.</p>
 <p><strong>Question 6:</strong> Is the output better than you expected :) ?  Or worse :( ?  Provide at least three possible points of improvement for your algorithm.</p>
 <p><strong>Answer:</strong></p>
+<p>The output shows some unexpected behavior, especially to classify dogs. During all tests, the CNN always found a dog in an image, independent of its content (like a bike).</p>
+<p>As a proposal do improvement, one could implement an ensembling with bagging or tree classifier. Also, the images could be augmented using Keras procedure or Generative Adversarial Networks (GAN).</p>
 
 </div>
 </div>
