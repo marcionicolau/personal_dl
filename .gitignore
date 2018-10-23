@@ -60,3 +60,6 @@ target/
 *.zip
 
 *.json
+
+# Face Generation Data
+face_generation/data/
