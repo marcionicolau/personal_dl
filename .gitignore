@@ -63,3 +63,4 @@ target/
 
 # Face Generation Data
 face_generation/data/
+face_generation/.idea/
